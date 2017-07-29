@@ -1,5 +1,9 @@
 package com.kimvan.hung.calculator.calculator;
 
+import android.util.Log;
+
+import com.kimvan.hung.calculator.ViewerScreenFragment;
+
 import java.util.ArrayList;
 
 /**
@@ -13,7 +17,7 @@ public class Handler {
 
     //handle input text
     private  ArrayList<String> function ;
-    private ArrayList<ArrayList<String>> groupAddSubtract ;
+    private ArrayList<ArrayList<String>> groupAddSubtract = new ArrayList<>();
 
     // get sub ArrayList
     public ArrayList<String> subFunctionArrayList(int fromIdx,int toIdx){
@@ -118,25 +122,26 @@ public class Handler {
 
     // transform a*(b+c) into a*d
     public ArrayList<String> replaceParenthesis(){
+        ArrayList<String> func = this.function;
         ArrayList<String> result = new ArrayList<>();
         int startIdx=0,endIdx=0;
-        for (int function_i=0;function_i<function.size();function_i++){
-            if (function.get(function_i).equals("(")){
+        for (int function_i=0;function_i<func.size();function_i++){
+            if (func.get(function_i).equals("(")){
                 startIdx=function_i;
             }
-            if (function.get(function_i).equals(")")){
+            if (func.get(function_i).equals(")")){
                 endIdx=function_i;
                 break;
             }
         }
         for (int i=startIdx+1;i<endIdx;i++){
-            result.add(function.get(startIdx+1));
-            function.remove(startIdx+1);
+            result.add(func.get(startIdx+1));
+            func.remove(startIdx+1);
         }
         Handler handler = new Handler(result);
-        function.remove(startIdx);
-        function.remove(endIdx);
-        function.add(startIdx,handler.getResult());
-        return this.function;
+        func.remove(startIdx);
+        func.remove(startIdx);
+        func.add(startIdx,handler.getResult());
+        return func;
     }
 }
