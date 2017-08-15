@@ -22,7 +22,8 @@
         <activity
             android:name=".sience.SienceCalculator"
             android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
