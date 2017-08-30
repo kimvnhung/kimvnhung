@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/"
+    xmlns:tools2="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:content="com.kimvan.hung.calculator.ViewerScreenFragment"
+    tools:showIn="@layout/viewer_screen_fragment">
+
+    <EditText
+        android:id="@+id/content_function"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:inputType="phone"
+        android:layout_weight="1"
+        tools2:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/equals_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+</LinearLayout>
